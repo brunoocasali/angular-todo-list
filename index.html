@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <script src="js/angular.min.js"></script>
+        <script src="js/controller.js"></script>
+    </head>
+
+    <body ng-controller="TodoController">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="text-center">TODO:</h1>
+
+                    <div class="input-group">
+                       <input type="text" ng-model="task" class="form-control" placeholder="Descrição da tarefa!">
+                       <span class="input-group-btn">
+                          <input type="submit" class="btn btn-success" ng-click="saveTask();" type="button" value="Adicionar!"/>
+                       </span>
+                    </div>
+                </div>                
+                <div class="col-md-12">
+                    <hr/>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <ul>
+                        <li ng-repeat="t in list | filter:task">
+                            {{t}} - <a href="#" ng-click="destroy($index)">Excluir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
